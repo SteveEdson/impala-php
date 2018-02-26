@@ -64,6 +64,6 @@ class Api implements ApiInterface
             );
         }
 
-        return json_decode($response->getBody(), true);
+        return $response->getBody()->getContents();
     }
 }
