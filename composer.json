@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "^7.0",
+        "php": ">=7.0",
         "guzzlehttp/guzzle": "^6.3",
         "nesbot/carbon": "^1.22"
     },
@@ -18,7 +18,7 @@
         "phpunit/phpunit": "^6"
     },
     "autoload": {
-        "classmap": [
+        "psr-4": [
             "src/"
         ]
     }
