@@ -42,7 +42,7 @@ class ApiTest extends TestCase
     {
         $api = new Api('dummy', $this->client);
 
-        $response = $api->makeRequest('POST', 'test');
+        $api->makeRequest('POST', 'test');
         $request = $this->container[0]['request'];
 
         $this->assertEquals($request->getUri()->getPath(), 'test');
@@ -56,7 +56,7 @@ class ApiTest extends TestCase
         $params = [
             'query' => ['param' => 'test'],
         ];
-        $response = $api->makeRequest('GET', 'test', $params);
+        $api->makeRequest('GET', 'test', $params);
         $request = $this->container[0]['request'];
 
         $queryString = 'param=test';
@@ -74,6 +74,7 @@ class ApiTest extends TestCase
         $api = new Api('dummy', $client);
 
         $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Could not make request to Impala API: Error');
         $api->makeRequest('GET', 'test');
     }
 }
