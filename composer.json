@@ -1,5 +1,6 @@
 {
     "name": "get-impala/impala-php",
+    "version": "0.1.0",
     "description": "PHP wrapper for Impala hotel PMS API",
     "license": "UNLICENSED",
     "authors": [
