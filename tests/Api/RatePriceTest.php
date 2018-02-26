@@ -21,10 +21,10 @@ class RatePriceTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/1/rate-price')
+                 $this->equalTo('hotel/hotelId/rate-price')
              );
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
 
         $hotel->getRatePrices();
     }
@@ -37,11 +37,11 @@ class RatePriceTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/1/rate-price/1')
+                 $this->equalTo('hotel/hotelId/rate-price/ratePriceId')
              );
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
 
-        $hotel->getRatePriceById(1);
+        $hotel->getRatePriceById('ratePriceId');
     }
 }

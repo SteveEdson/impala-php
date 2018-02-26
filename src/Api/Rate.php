@@ -18,10 +18,10 @@ trait Rate
     /**
      * Get a specific rate given its ID.
      *
-     * @param  int $rateId ID of the rate to retrieve.
+     * @param string $rateId ID of the rate to retrieve.
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function getRateById(int $rateId)
+    public function getRateById(string $rateId)
     {
         return $this->get('rate/' . $rateId);
     }

@@ -16,9 +16,9 @@ class HotelTest extends TestCase
 
     public function testHotelIdIsReturned()
     {
-        $hotel = new Hotel(1, $this->createApiMock());
+        $hotel = new Hotel('hotelId', $this->createApiMock());
 
-        $this->assertEquals($hotel->getId(), 1);
+        $this->assertEquals($hotel->getId(), 'hotelId');
     }
 
     public function testGetRequestIsMade()
@@ -29,11 +29,11 @@ class HotelTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/1/testUrl'),
+                 $this->equalTo('hotel/hotelId/testUrl'),
                  $this->equalTo(['query' => ['testParams']])
              );
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
         $hotel->get('testUrl', ['testParams']);
     }
 }

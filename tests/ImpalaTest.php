@@ -14,6 +14,6 @@ class ImpalaTest extends TestCase
             ->getMock();
         $impala = new Impala($api);
 
-        $this->assertInstanceOf(Hotel::class, $impala->getHotel(1));
+        $this->assertInstanceOf(Hotel::class, $impala->getHotel('hotelId'));
     }
 }

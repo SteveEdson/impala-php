@@ -18,10 +18,10 @@ trait RoomType
     /**
      * Get a specific room type given its ID.
      *
-     * @param  int $roomTypeId ID of the room type to retrieve.
+     * @param string $roomTypeId ID of the room type to retrieve.
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function getRoomTypeById(int $roomTypeId)
+    public function getRoomTypeById(string $roomTypeId)
     {
         return $this->get('room-type/' . $roomTypeId);
     }

@@ -18,10 +18,10 @@ trait RatePrice
     /**
      * Get a specific rate price given its ID.
      *
-     * @param  int $ratePriceId ID of the rate price to retrieve.
+     * @param string $ratePriceId ID of the rate price to retrieve.
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function getRatePriceById(int $ratePriceId)
+    public function getRatePriceById(string $ratePriceId)
     {
         return $this->get('rate-price/' . $ratePriceId);
     }

@@ -28,10 +28,10 @@ class Impala
     /**
      * Get a specific hotel given its ID.
      *
-     * @param  int $hotelId The ID of the hotel to get.
+     * @param string $hotelId The ID of the hotel to get.
      * @return Impala\Hotel
      */
-    public function getHotel(int $hotelId)
+    public function getHotel(string $hotelId)
     {
         return new Hotel($hotelId, $this->api);
     }

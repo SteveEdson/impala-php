@@ -32,10 +32,10 @@ trait Booking
     /**
      * Get a specific booking given its ID.
      *
-     * @param  int $bookingId ID of the booking to retrieve.
+     * @param string $bookingId ID of the booking to retrieve.
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function getBookingById(int $bookingId)
+    public function getBookingById(string $bookingId)
     {
         return $this->get('booking/' . $bookingId);
     }

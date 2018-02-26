@@ -18,10 +18,10 @@ trait Room
     /**
      * Get a specific room given its ID.
      *
-     * @param  int $roomId ID of the room to retrieve.
+     * @param string $roomId ID of the room to retrieve.
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function getRoomById(int $roomId)
+    public function getRoomById(string $roomId)
     {
         return $this->get('room/' . $roomId);
     }

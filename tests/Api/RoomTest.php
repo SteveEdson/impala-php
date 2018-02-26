@@ -21,10 +21,10 @@ class RoomTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/1/room')
+                 $this->equalTo('hotel/hotelId/room')
              );
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
 
         $hotel->getRooms();
     }
@@ -37,11 +37,11 @@ class RoomTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/1/room/1')
+                 $this->equalTo('hotel/hotelId/room/roomId')
              );
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
 
-        $hotel->getRoomById(1);
+        $hotel->getRoomById('roomId');
     }
 }

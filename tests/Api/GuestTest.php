@@ -21,10 +21,10 @@ class GuestTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/1/guest')
+                 $this->equalTo('hotel/hotelId/guest')
              );
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
 
         $hotel->getGuests();
     }
@@ -37,11 +37,11 @@ class GuestTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/1/guest/1')
+                 $this->equalTo('hotel/hotelId/guest/guestId')
              );
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
 
-        $hotel->getGuestById(1);
+        $hotel->getGuestById('guestId');
     }
 }

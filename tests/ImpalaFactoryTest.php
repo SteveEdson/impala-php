@@ -16,7 +16,7 @@ class ImpalaFactoryTest extends TestCase
 
     public function testHotelObjectIsReturnedWhenPassingHotelId()
     {
-        $object = ImpalaFactory::create('dummy', 1);
+        $object = ImpalaFactory::create('dummy', 'hotelId');
 
         $this->assertInstanceOf(Hotel::class, $object);
     }

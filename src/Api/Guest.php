@@ -18,10 +18,10 @@ trait Guest
     /**
      * Get a specific guest given its ID.
      *
-     * @param  int $guestId ID of the guest to retrieve.
+     * @param string $guestId ID of the guest to retrieve.
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function getGuestById(int $guestId)
+    public function getGuestById(string $guestId)
     {
         return $this->get('guest/' . $guestId);
     }

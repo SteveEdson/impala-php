@@ -21,7 +21,7 @@ class Hotel
     /**
      * The hotel ID.
      *
-     * @var integer
+     * @var string
      */
     protected $id;
 
@@ -35,10 +35,10 @@ class Hotel
     /**
      * Initializes the Hotel object setting it properties.
      *
-     * @param int          $id  The hotel ID.
+     * @param int          $string  The hotel ID.
      * @param ApiInterface $api The service to make API calls.
      */
-    public function __construct(int $id, ApiInterface $api)
+    public function __construct(string $id, ApiInterface $api)
     {
         $this->id = $id;
         $this->api = $api;
@@ -47,7 +47,7 @@ class Hotel
     /**
      * Returns the hotel id.
      *
-     * @return integer
+     * @return string
      */
     public function getId()
     {

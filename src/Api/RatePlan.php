@@ -18,10 +18,10 @@ trait RatePlan
     /**
      * Get a specific rate plan given its ID.
      *
-     * @param  int $ratePlanId ID of the rate plan to retrieve.
+     * @param string $ratePlanId ID of the rate plan to retrieve.
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function getRatePlanById(int $ratePlanId)
+    public function getRatePlanById(string $ratePlanId)
     {
         return $this->get('rate-plan/' . $ratePlanId);
     }

@@ -37,12 +37,12 @@ class BookingTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/1/booking/1')
+                 $this->equalTo('hotel/hotelId/booking/bookingId')
              );
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
 
-        $hotel->getBookingById(1);
+        $hotel->getBookingById('bookingId');
     }
 
     public function testErrorIsReturnedIfOnlyStartDateIsPassed()
@@ -53,7 +53,7 @@ class BookingTest extends TestCase
             'startDate' => '2018-01-01',
         ];
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
 
         $this->expectException(\InvalidArgumentException::class);
         $hotel->getBookings($params);
@@ -67,7 +67,7 @@ class BookingTest extends TestCase
             'endDate' => '2018-01-01',
         ];
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
 
         $this->expectException(\InvalidArgumentException::class);
         $hotel->getBookings($params);
@@ -85,11 +85,11 @@ class BookingTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/1/booking'),
+                 $this->equalTo('hotel/hotelId/booking'),
                  $this->equalTo(['query' => $params])
              );
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
 
         $hotel->getBookings($params);
     }
@@ -106,7 +106,7 @@ class BookingTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/1/booking'),
+                 $this->equalTo('hotel/hotelId/booking'),
                  $this->equalTo([
                      'query' => [
                          'startDate' => '2018-01-01',
@@ -115,7 +115,7 @@ class BookingTest extends TestCase
                  ])
              );
 
-        $hotel = new Hotel(1, $mock);
+        $hotel = new Hotel('hotelId', $mock);
 
         $hotel->getBookings($params);
     }

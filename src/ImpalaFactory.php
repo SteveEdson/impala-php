@@ -22,11 +22,11 @@ class ImpalaFactory
      * If a hotel ID is passed uses the Impala object to get a hotel object and
      * return it, otherwise returns the Impala object itself.
      *
-     * @param  string $apiKey  API key to access Impala API.
-     * @param  int    $hotelId Optional hotel ID.
+     * @param string $apiKey  API key to access Impala API.
+     * @param string $hotelId Optional hotel ID.
      * @return Impala\Impala|Impala\Hotel
      */
-    public static function create(string $apiKey, int $hotelId = null)
+    public static function create(string $apiKey, string $hotelId = null)
     {
         $client = new Client(['base_uri' => self::BASE_URL]);
         $api = new Api($apiKey, $client);
