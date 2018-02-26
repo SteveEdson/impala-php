@@ -60,10 +60,10 @@ class Api implements ApiInterface
             );
         } catch (\Exception $e) {
             throw new \Exception(
-                'Could not make request to Impala API:' . $e->getMessage()
+                'Could not make request to Impala API: ' . $e->getMessage()
             );
         }
 
-        return $response;
+        return json_decode($response->getBody(), true);
     }
 }
