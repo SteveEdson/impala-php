@@ -18,8 +18,11 @@ found in the ['Getting Started'][getting-started] section of the Impala develope
 After installation, you can instantiate the library using its factory class:
 
 ```php
+require_once __DIR__ . '/vendor/autoload.php';
 
-Impala\ImpalaFactory;
+use Impala\ImpalaFactory;
+
+$impala = ImpalaFactory::create(<api-key>);
 ```
 
 ### Working with a single hotel
@@ -28,7 +31,6 @@ If your application will only be dealing with a single hotel at a time,
 you can instantiate the Impala API like this:
 
 ```php
-
 $hapiHotel = ImpalaFactory::create('secret', 'hapi');
 ```
 
@@ -38,7 +40,7 @@ If your application will be dealing with multiple hotels, you can omit the `hote
 parameter, like so:
 
 ```php
-$impala = ImpalaFactory::create('secret', 'hapi');
+$impala = ImpalaFactory::create('secret');
 
 // You can then pass the hotelId directly to the method
 $impala->getBookings('hapi');
@@ -66,7 +68,7 @@ $hapiHotel = ImpalaFactory::create('secret', 'hapi')
 $hapiHotel->getBookings([
     'startDate' => '2018-02-03',
     'endDate' => '2018-02-05',
-  ]);
+]);
 
 $hapiHotel->getBookingById('c4be6570-15fc-4926-b339-446db4800f81');
 ```
