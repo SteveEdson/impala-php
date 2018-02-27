@@ -16,4 +16,24 @@ class ImpalaTest extends TestCase
 
         $this->assertInstanceOf(Hotel::class, $impala->getHotel('hotelId'));
     }
+
+    public function testItCanCallMethodFromHotelClass()
+    {
+        $hotelMock = $this->createMock(Hotel::class);
+
+        $mock = $this->getMockBuilder(Impala::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['getHotel'])
+            ->getMock();
+
+        $mock->expects($this->once())
+            ->method('getHotel')
+            ->with($this->equalTo('hotelId'))
+            ->willReturn($hotelMock);
+
+        $hotelMock->expects($this->once())
+            ->method('getBookings');
+
+        $mock->getBookings('hotelId');
+    }
 }
