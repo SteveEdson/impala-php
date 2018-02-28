@@ -18,8 +18,6 @@
         "phpunit/phpunit": "^6"
     },
     "autoload": {
-        "psr-4": [
-            "src/"
-        ]
+        "psr-4": {"Impala\\": "src/"}
     }
 }
