@@ -34,15 +34,10 @@ class Impala
      */
     public function __call(string $method, array $arguments)
     {
-        if (is_array($arguments)) {
-            if (method_exists(Hotel::class, $method)) {
-                $hotel = $this->getHotel($arguments[0]);
-            
-                // Remove hotel ID from arguments
-                array_shift($arguments);
+        if (isset($arguments[0]['hotelId']) && method_exists(Hotel::class, $method)) {
+            $hotel = $this->getHotel($arguments[0]['hotelId']);
 
-                return call_user_func_array(array($hotel, $method), $arguments);
-            }
+            return call_user_func_array(array($hotel, $method), $arguments);
         }
     }
 

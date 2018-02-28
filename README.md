@@ -43,7 +43,7 @@ parameter, like so:
 $impala = ImpalaFactory::create('secret');
 
 // You can then pass the hotelId directly to the method
-$impala->getBookings('hapi');
+$impala->getBookings(['hotelId' => 'hapi']);
 
 // Or, you can call getHotel to return a single-hotel API instance
 $hapiHotel = $impala->getHotel('hapi')
