@@ -1,0 +1,12 @@
+notifications:
+  slack: getimpala:NOJPob73lAIQDAtlyt78eP5C
+language: php
+before_script:
+- composer install
+matrix:
+  include:
+    - php: 7.1
+      dist: hhvm
+    - php: 5.3
+      dist: precise
+
