@@ -1,4 +1,5 @@
 # Impala API PHP SDK
+[![Build Status](https://travis-ci.org/GetImpala/impala-php.svg?branch=master)](https://travis-ci.org/GetImpala/impala-php)
 
 ## Installation
 
