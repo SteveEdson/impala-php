@@ -1,23 +1,22 @@
 {
-    "name": "get-impala/impala-php",
-    "version": "0.1.0",
-    "description": "PHP wrapper for Impala hotel PMS API",
-    "license": "UNLICENSED",
-    "authors": [
-        {
-            "name": "Renato Santos",
-            "email": "renato.miguel@gmail.com"
-        }
-    ],
-    "require": {
-        "php": ">=7.0",
-        "guzzlehttp/guzzle": "^6.3",
-        "nesbot/carbon": "^1.22"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^6"
-    },
-    "autoload": {
-        "psr-4": {"Impala\\": "src/"}
+  "name": "get-impala/impala-php",
+  "version": "0.1.0",
+  "description": "PHP wrapper for Impala hotel PMS API",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Impala"
     }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "guzzlehttp/guzzle": "^6.3",
+    "nesbot/carbon": "^1.22"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6"
+  },
+  "autoload": {
+    "psr-4": {"Impala\\": "src/"}
+  }
 }
