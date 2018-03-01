@@ -34,6 +34,6 @@ class ImpalaTest extends TestCase
         $hotelMock->expects($this->once())
             ->method('getBookings');
 
-        $mock->getBookings('hotelId');
+        $mock->getBookings(['hotelId' => 'hotelId']);
     }
 }
