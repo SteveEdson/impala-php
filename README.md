@@ -63,7 +63,7 @@ $hapiHotel->getBookings();
 
 ## Making API calls
 
-All API methods accept an object as their first argument, containing the parameters for the API call. This object can be omitted if there are no arguments to set.
+API methods accept an associative array as their first argument, containing the parameters for the API call. This can be omitted if there are no arguments to set.
 
 API methods that take an ID have the ID as the first argument.
 
