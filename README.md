@@ -45,6 +45,13 @@ $impala = ImpalaFactory::create('secret');
 // You can then pass the hotelId directly to the method
 $impala->getBookings(['hotelId' => 'hapi']);
 
+// Or with extra parameters
+$impala->getBookings([
+    'hotelId' => 'hapi',
+    'startDate' => '2018-02-03',
+    'endDate' => '2018-02-05',
+]);
+
 // Or, you can call getHotel to return a single-hotel API instance
 $hapiHotel = $impala->getHotel('hapi')
 
