@@ -4,7 +4,7 @@ use Impala\Api;
 use Impala\Hotel;
 use PHPUnit\Framework\TestCase;
 
-class RatePriceTest extends TestCase
+class RoomAvailabilityTest extends TestCase
 {
     protected function createApiMock()
     {
@@ -13,7 +13,7 @@ class RatePriceTest extends TestCase
             ->getMock();
     }
 
-    public function testGetRatePricesCallsCorrectUrl()
+    public function testGetRoomAvailabilitiesCallsCorrectUrl()
     {
         $mock = $this->createApiMock();
 
@@ -21,12 +21,12 @@ class RatePriceTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/hotelId/rate/price')
+                 $this->equalTo('hotel/hotelId/room/availability')
              );
 
         $hotel = new Hotel('hotelId', $mock);
 
-        $hotel->getRatePrices();
+        $hotel->getRoomAvailabilities();
     }
 
     public function testItCallsTheCorrectEndPointWhenARateIdIsPassedIn()
@@ -34,18 +34,18 @@ class RatePriceTest extends TestCase
         $mock = $this->createApiMock();
 
         $params = [
-            'rateId' => 456
+            'roomId' => 456
         ];
         $mock->expects($this->once())
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/hotelId/rate/456/price')
+                 $this->equalTo('hotel/hotelId/room/456/availability')
              );
 
         $hotel = new Hotel('hotelId', $mock);
 
-        $hotel->getRatePrices($params);
+        $hotel->getRoomAvailabilities($params);
     }
 
     public function testItWorksWhenARoomTypeIdIsPassed()
@@ -59,13 +59,13 @@ class RatePriceTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/hotelId/rate/price'),
+                 $this->equalTo('hotel/hotelId/room/availability'),
                  $this->equalTo(['query' => $params])
              );
 
         $hotel = new Hotel('hotelId', $mock);
 
-        $hotel->getRatePrices($params);
+        $hotel->getRoomAvailabilities($params);
     }
 
     public function testErrorIsReturnedIfOnlyStartDateIsPassed()
@@ -79,7 +79,7 @@ class RatePriceTest extends TestCase
         $hotel = new Hotel('hotelId', $mock);
 
         $this->expectException(\InvalidArgumentException::class);
-        $hotel->getRatePrices($params);
+        $hotel->getRoomAvailabilities($params);
     }
 
     public function testErrorIsReturnedIfOnlyEndDateIsPassed()
@@ -93,7 +93,7 @@ class RatePriceTest extends TestCase
         $hotel = new Hotel('hotelId', $mock);
 
         $this->expectException(\InvalidArgumentException::class);
-        $hotel->getRatePrices($params);
+        $hotel->getRoomAvailabilities($params);
     }
 
     public function testItWorksWhenBothDatesIsPassed()
@@ -108,13 +108,13 @@ class RatePriceTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/hotelId/rate/price'),
+                 $this->equalTo('hotel/hotelId/room/availability'),
                  $this->equalTo(['query' => $params])
              );
 
         $hotel = new Hotel('hotelId', $mock);
 
-        $hotel->getRatePrices($params);
+        $hotel->getRoomAvailabilities($params);
     }
 
     public function testDatesGetFormatted()
@@ -129,7 +129,7 @@ class RatePriceTest extends TestCase
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/hotelId/rate/price'),
+                 $this->equalTo('hotel/hotelId/room/availability'),
                  $this->equalTo([
                      'query' => [
                          'startDate' => '2018-01-01',
@@ -140,7 +140,7 @@ class RatePriceTest extends TestCase
 
         $hotel = new Hotel('hotelId', $mock);
 
-        $hotel->getRatePrices($params);
+        $hotel->getRoomAvailabilities($params);
     }
 
     public function testItAcceptsAllParametersAtOnce()
@@ -148,27 +148,25 @@ class RatePriceTest extends TestCase
         $mock = $this->createApiMock();
 
         $params = [
-            'rateId' => 456,
+            'roomId' => 456,
             'startDate' => '01-01-2018',
             'endDate' => '02-01-2018',
-            'roomTypeId' => 123
         ];
         $mock->expects($this->once())
              ->method('makeRequest')
              ->with(
                  $this->equalTo('GET'),
-                 $this->equalTo('hotel/hotelId/rate/456/price'),
+                 $this->equalTo('hotel/hotelId/room/456/availability'),
                  $this->equalTo([
                      'query' => [
                          'startDate' => '2018-01-01',
                          'endDate' => '2018-01-02',
-                         'roomTypeId' => 123
                      ]
                  ])
              );
 
         $hotel = new Hotel('hotelId', $mock);
 
-        $hotel->getRatePrices($params);
+        $hotel->getRoomAvailabilities($params);
     }
 }

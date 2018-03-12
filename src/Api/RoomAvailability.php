@@ -5,19 +5,19 @@ namespace Impala\Api;
 use Carbon\Carbon;
 use \InvalidArgumentException;
 
-trait RatePrice
+trait RoomAvailability
 {
     /**
-     * Get all rate prices for a hotel.
+     * Get all room availabilities for a hotel.
      *
      * @param array $params Optional params to be passed to request.
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function getRatePrices(array $params = [])
+    public function getRoomAvailabilities(array $params = [])
     {
         if (isset($params['startDate']) ^ isset($params['endDate'])) {
             throw new InvalidArgumentException(
-                'getRatePrices requires both startDate and endDate (or neither)'
+                'getRoomAvailabilities requires both startDate and endDate (or neither)'
             );
         }
 
@@ -26,13 +26,13 @@ trait RatePrice
             $params['endDate'] = $this->formatDate($params['endDate']);
         }
 
-        $route = ['rate'];
-        if (isset($params['rateId'])) {
-            $route[] = $params['rateId'];
+        $route = ['room'];
+        if (isset($params['roomId'])) {
+            $route[] = $params['roomId'];
         }
-        $route[] = 'price';
+        $route[] = 'availability';
 
-        unset($params['rateId']);
+        unset($params['roomId']);
 
         return $this->get(implode('/', $route), $params);
     }
