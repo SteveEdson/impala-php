@@ -108,6 +108,7 @@ $hapiHotel->getBookingById('c4be6570-15fc-4926-b339-446db4800f81');
 [type-guest]: https://docs.getimpala.com/#guest
 [type-room]: https://docs.getimpala.com/#room
 [type-roomtype]: https://docs.getimpala.com/#room-type
+[type-roomavailability]: https://docs.getimpala.com/#room-availability
 [type-rate]: https://docs.getimpala.com/#rate
 [type-rateplan]: https://docs.getimpala.com/#rate-plan
 [type-rateprice]: https://docs.getimpala.com/#rate-price
