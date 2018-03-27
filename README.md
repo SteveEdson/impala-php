@@ -1,6 +1,7 @@
 # Impala API PHP SDK
-[![Build Status](https://travis-ci.org/GetImpala/impala-php.svg?branch=master)](https://travis-ci.org/GetImpala/impala-php)
+[![CircleCI](https://circleci.com/gh/GetImpala/impala-php.svg?style=svg)](https://circleci.com/gh/GetImpala/impala-php)
 [![Maintainability](https://api.codeclimate.com/v1/badges/94b4737a43d9fddca5c4/maintainability)](https://codeclimate.com/github/GetImpala/impala-php/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/94b4737a43d9fddca5c4/test_coverage)](https://codeclimate.com/github/GetImpala/impala-php/test_coverage)
 
 ## Installation
 
