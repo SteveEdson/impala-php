@@ -5,19 +5,20 @@ namespace Impala;
 use Impala\ApiInterface;
 use Impala\Api\Booking;
 use Impala\Api\Guest;
-use Impala\Api\Room;
-use Impala\Api\RoomType;
-use Impala\Api\RoomAvailability;
 use Impala\Api\Rate;
 use Impala\Api\RatePlan;
 use Impala\Api\RatePrice;
+use Impala\Api\Room;
+use Impala\Api\RoomAvailability;
+use Impala\Api\RoomType;
+use Impala\Api\RoomTypeAvailability;
 
 /**
  * Representation of a Hotel.
  */
 class Hotel
 {
-    use Booking, Guest, Room, RoomType, RoomAvailability, Rate, RatePlan, RatePrice;
+    use Booking, Guest, Room, RoomType, RoomAvailability, RoomTypeAvailability, Rate, RatePlan, RatePrice;
 
     /**
      * The hotel ID.
