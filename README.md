@@ -76,6 +76,8 @@ API methods accept an associative array as their first argument, containing the 
 
 API methods that take an ID have the ID as the first argument.
 
+API methods that update a resource take the array representation of a [JSON merge patch](https://tools.ietf.org/html/rfc7386) as their second argument. 
+
 For example:
 
 ```php
@@ -97,6 +99,7 @@ $hapiHotel->getBookingById('c4be6570-15fc-4926-b339-446db4800f81');
 |:-------------------------|:------------------------------------------------------------------------------|
 | `getBookingById`         | [`GET /v1/hotel/:hotelId/booking/:bookingId`][type-booking]                   |
 | `getBookings`            | [`GET /v1/hotel/:hotelId/booking`][type-booking]                              |
+| `updateBookingById`      | [`PATCH /v1/hotel/:hotelId/booking/:bookingId`][type-booking]                 |
 | `getGuestById`           | [`GET /v1/hotel/:hotelId/guest/:guestId`][type-guest]                         |
 | `getGuests`              | [`GET /v1/hotel/:hotelId/guest`][type-guest]                                  |
 | `getRateById`            | [`GET /v1/hotel/:hotelId/rate/:rateId`][type-rate]                            |

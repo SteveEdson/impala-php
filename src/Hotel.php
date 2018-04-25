@@ -69,4 +69,25 @@ class Hotel
 
         return $this->api->makeRequest('GET', $url, ['query' => $params]);
     }
+
+    /**
+     * Makes a PATCH request to the hotel endpoint of the Impala API.
+     *
+     * @param string $endpoint The endpoint of the API to call.
+     * @param array  $params   Optional parameters to be passed in the request.
+     * @param array  $body     The request body to be sent as JSON.
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function patch(string $endpoint, array $params = [], array $body = null)
+    {
+        $url = 'hotel/' . $this->getId() . '/' . $endpoint;
+        $options = [
+            'query' => $params
+        ];
+        if ($body) {
+            $options['json'] = $body;
+        }
+
+        return $this->api->makeRequest('PATCH', $url, $options);
+    }
 }

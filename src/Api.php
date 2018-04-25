@@ -40,18 +40,18 @@ class Api implements ApiInterface
     /**
      * Makes a request to Impala API.
      *
-     * @param string $method The HTTP method to use.
-     * @param string $url    The endpoint of the API to call.
-     * @param array  $params Optional parameters to pass in the request.
+     * @param string $method    The HTTP method to use.
+     * @param string $url       The endpoint of the API to call.
+     * @param array  $options   Options to pass in the request.
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function makeRequest(string $method, string $url, array $params = [])
+    public function makeRequest(string $method, string $url, array $options = [])
     {
         try {
             $response = $this->client->request(
                 $method,
                 $url,
-                array_merge($params,[
+                array_merge($options,[
                     'headers' => [
                         'User-Agent' => self::USER_AGENT,
                         'Authorization' => 'Bearer ' . $this->apiKey,

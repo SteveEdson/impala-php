@@ -119,4 +119,26 @@ class BookingTest extends TestCase
 
         $hotel->getBookings($params);
     }
+
+    public function testUpdateBookingByIdCallsCorrectUrl()
+    {
+        $mock = $this->createApiMock();
+
+        $bookingData = ['start' => 123456, 'roomIds' => ['abc', 'cde']];
+
+        $mock->expects($this->once())
+             ->method('makeRequest')
+             ->with(
+                 $this->equalTo('PATCH'),
+                 $this->equalTo('hotel/hotelId/booking/bookingId'),
+                 $this->equalTo([
+                     'json' => $bookingData,
+                     'query' => []
+                ])
+             );
+
+        $hotel = new Hotel('hotelId', $mock);
+
+        $hotel->updateBookingById('bookingId', $bookingData);
+    }
 }

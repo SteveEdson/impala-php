@@ -41,6 +41,18 @@ trait Booking
     }
 
     /**
+     * Update a specific booking given its ID.
+     *
+     * @param string $bookingId ID of the booking to update.
+     * @param array $data       The updates to be applied to the booking.
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function updateBookingById(string $bookingId, array $data)
+    {
+        return $this->patch('booking/' . $bookingId, [], $data);
+    }
+
+    /**
      * Formats a date input.
      *
      * @param  string $date The date input string.
