@@ -10,6 +10,7 @@ use Impala\Api\AreaType;
 use Impala\Api\Bill;
 use Impala\Api\Booking;
 use Impala\Api\BookingSet;
+use Impala\Api\Extra;
 use Impala\Api\Guest;
 use Impala\Api\Rate;
 use Impala\Api\RatePlan;
@@ -24,8 +25,8 @@ use Impala\Api\RoomTypeAvailability;
  */
 class Hotel
 {
-    use Allocation, Area, AreaType, Bill, Booking, BookingSet, Guest, Room, RoomType, 
-        RoomAvailability, RoomTypeAvailability, Rate, RatePlan, RatePrice;
+    use Allocation, Area, AreaType, Bill, Booking, BookingSet, Extra, Guest, Room,
+        RoomType, RoomAvailability, RoomTypeAvailability, Rate, RatePlan, RatePrice;
 
     /**
      * The hotel ID.
