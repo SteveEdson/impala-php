@@ -37,7 +37,7 @@ class Hotel
     /**
      * Initializes the Hotel object setting it properties.
      *
-     * @param int          $string  The hotel ID.
+     * @param string       $id  The hotel ID.
      * @param ApiInterface $api The service to make API calls.
      */
     public function __construct(string $id, ApiInterface $api)
@@ -65,9 +65,7 @@ class Hotel
      */
     public function get(string $endpoint, array $params = [])
     {
-        $url = 'hotel/' . $this->getId() . '/' . $endpoint;
-
-        return $this->api->makeRequest('GET', $url, ['query' => $params]);
+        return $this->request('GET', $endpoint, $params, $body);
     }
 
     /**
@@ -80,6 +78,41 @@ class Hotel
      */
     public function patch(string $endpoint, array $params = [], array $body = null)
     {
+        return $this->request('PATCH', $endpoint, $params, $body);
+    }
+
+    /**
+     * Makes a POST request to the hotel endpoint of the Impala API.
+     *
+     * @param string $endpoint The endpoint of the API to call.
+     * @param array  $params   Optional parameters to be passed in the request.
+     * @param array  $body     The request body to be sent as JSON.
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function post(string $endpoint, array $params = [], array $body = null)
+    {
+        return $this->request('POST', $endpoint, $params, $body);
+    }
+
+    /**
+     * Makes a PUT request to the hotel endpoint of the Impala API.
+     *
+     * @param string $endpoint The endpoint of the API to call.
+     * @param array  $params   Optional parameters to be passed in the request.
+     * @param array  $body     The request body to be sent as JSON.
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function put(string $endpoint, array $params = [], array $body = null)
+    {
+        return $this->request('PUT', $endpoint, $params, $body);
+    }
+
+    protected function request(
+        string $method,
+        string $endpoint,
+        array $params = [],
+        array $body = null
+    ) {
         $url = 'hotel/' . $this->getId() . '/' . $endpoint;
         $options = [
             'query' => $params
@@ -88,6 +121,6 @@ class Hotel
             $options['json'] = $body;
         }
 
-        return $this->api->makeRequest('PATCH', $url, $options);
+        return $this->api->makeRequest($method, $url, $options);
     }
 }
