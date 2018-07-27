@@ -2,7 +2,6 @@
 
 namespace Impala\Api;
 
-use Carbon\Carbon;
 use \InvalidArgumentException;
 
 trait Booking
@@ -41,10 +40,21 @@ trait Booking
     }
 
     /**
+     * Create a new booking.
+     *
+     * @param array $data The data to create the new booking.
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function createBooking(array $data)
+    {
+        return $this->post('booking', [], $data);
+    }
+
+    /**
      * Update a specific booking given its ID.
      *
      * @param string $bookingId ID of the booking to update.
-     * @param array $data       The updates to be applied to the booking.
+     * @param array  $data      The updates to be applied to the booking.
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function updateBookingById(string $bookingId, array $data)
@@ -53,13 +63,57 @@ trait Booking
     }
 
     /**
-     * Formats a date input.
+     * Check in a booking.
      *
-     * @param  string $date The date input string.
-     * @return string
+     * @param string $bookingId ID of the booking to check in.
+     * @return \Psr\Http\Message\ResponseInterface
      */
-    protected function formatDate(string $date)
+    public function checkInBookingById(string $bookingId)
     {
-        return Carbon::parse($date)->format('Y-m-d');
+        return $this->post('booking/' . $bookingId . '/check-in');
+    }
+
+    /**
+     * Check out a booking.
+     *
+     * @param string $bookingId ID of the booking to check out.
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function checkOutBookingById(string $bookingId)
+    {
+        return $this->post('booking/' . $bookingId . '/check-out');
+    }
+
+    /**
+     * Cancel a booking.
+     *
+     * @param string $bookingId ID of the booking to cancel.
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function cancelBookingById(string $bookingId)
+    {
+        return $this->post('booking/' . $bookingId . '/cancel');
+    }
+
+    /**
+     * Retrieve a list of all guests for a booking.
+     *
+     * @param string $bookingId ID of the booking.
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function getGuestsForBooking(string $bookingId)
+    {
+        return $this->get('booking/' . $bookingId . '/guests');
+    }
+
+    /**
+     * Retrieve a list of bills for a booking.
+     *
+     * @param string $bookingId ID of the booking.
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function getBillsForBooking(string $bookingId)
+    {
+        return $this->get('booking/' . $bookingId . '/bill');
     }
 }

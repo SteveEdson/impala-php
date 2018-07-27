@@ -2,6 +2,7 @@
 
 namespace Impala;
 
+use Carbon\Carbon;
 use Impala\ApiInterface;
 use Impala\Api\Allocation;
 use Impala\Api\Area;
@@ -127,5 +128,16 @@ class Hotel
         }
 
         return $this->api->makeRequest($method, $url, $options);
+    }
+
+    /**
+     * Formats a date input.
+     *
+     * @param  string $date The date input string.
+     * @return string
+     */
+    protected function formatDate(string $date)
+    {
+        return Carbon::parse($date)->format('Y-m-d');
     }
 }
