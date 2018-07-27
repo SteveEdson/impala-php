@@ -3,6 +3,7 @@
 namespace Impala;
 
 use Impala\ApiInterface;
+use Impala\Api\Allocation;
 use Impala\Api\Booking;
 use Impala\Api\Guest;
 use Impala\Api\Rate;
@@ -18,7 +19,7 @@ use Impala\Api\RoomTypeAvailability;
  */
 class Hotel
 {
-    use Booking, Guest, Room, RoomType, RoomAvailability, RoomTypeAvailability, Rate, RatePlan, RatePrice;
+    use Allocation, Booking, Guest, Room, RoomType, RoomAvailability, RoomTypeAvailability, Rate, RatePlan, RatePrice;
 
     /**
      * The hotel ID.
