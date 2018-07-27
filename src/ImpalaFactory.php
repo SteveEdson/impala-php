@@ -13,7 +13,7 @@ class ImpalaFactory
      *
      * @var string
      */
-    const BASE_URL = 'https://api.getimpala.com/v1/';
+    const BASE_URL = 'https://api.getimpala.com/v2/';
 
     /**
      * Creates a new Impala instance.
