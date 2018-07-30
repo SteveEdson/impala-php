@@ -75,7 +75,7 @@ class Hotel
      */
     public function get(string $endpoint, array $params = [])
     {
-        return $this->request('GET', $endpoint, $params, $body);
+        return $this->request('GET', $endpoint, $params);
     }
 
     /**
