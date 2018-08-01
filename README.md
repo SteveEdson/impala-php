@@ -97,33 +97,55 @@ $hapiHotel->getBookingById('c4be6570-15fc-4926-b339-446db4800f81');
 
 | Name                     | HTTP API endpoint                                                             |
 |:-------------------------|:------------------------------------------------------------------------------|
-| `getBookingById`         | [`GET /v1/hotel/:hotelId/booking/:bookingId`][type-booking]                   |
-| `getBookings`            | [`GET /v1/hotel/:hotelId/booking`][type-booking]                              |
-| `updateBookingById`      | [`PATCH /v1/hotel/:hotelId/booking/:bookingId`][type-booking]                 |
-| `getGuestById`           | [`GET /v1/hotel/:hotelId/guest/:guestId`][type-guest]                         |
-| `getGuests`              | [`GET /v1/hotel/:hotelId/guest`][type-guest]                                  |
-| `getRateById`            | [`GET /v1/hotel/:hotelId/rate/:rateId`][type-rate]                            |
-| `getRatePlanById`        | [`GET /v1/hotel/:hotelId/rate-plan/:ratePlanId`][type-rateplan]               |
-| `getRatePlans`           | [`GET /v1/hotel/:hotelId/rate-plan`][type-rateplan]                           |
-| `getRatePrices`          | [`GET /v1/hotel/:hotelId/rate/:rateId/price`][type-rateprice]                 |
-| `getRatePrices`          | [`GET /v1/hotel/:hotelId/rate/price`][type-rateprice]                         |
-| `getRates`               | [`GET /v1/hotel/:hotelId/rate`][type-rate]                                    |
-| `getRoomAvailabilities`  | [`GET /v1/hotel/:hotelId/room/:roomId/availability`][type-roomavailability]   |
-| `getRoomAvailabilities`  | [`GET /v1/hotel/:hotelId/room/availability`][type-roomavailability]           |
-| `getRoomById`            | [`GET /v1/hotel/:hotelId/room/:roomId`][type-room]                            |
-| `getRoomTypeAvailabilities` | [`GET /v1/hotel/:hotelId/room-type/:roomTypeId/availability`][type-roomtypeavailability] |
-| `getRoomTypeAvailabilities` | [`GET /v1/hotel/:hotelId/room-type/availability`][type-roomtypeavailability]             |
-| `getRoomTypeById`        | [`GET /v1/hotel/:hotelId/room-type/:roomTypeId`][type-roomtype]               |
-| `getRoomTypes`           | [`GET /v1/hotel/:hotelId/room-type`][type-roomtype]                           |
-| `getRooms`               | [`GET /v1/hotel/:hotelId/room`][type-room]                                    |
+| `getAllocationById`      | [`GET /v2/hotel/:hotelId/allocation/:allocationId`][type-allocation]          |
+| `getAllocations`         | [`GET /v2/hotel/:hotelId/allocation`][type-allocation]                        |
+| `getAreaById`            | [`GET /v2/hotel/:hotelId/area/:areaId`][type-area]                            |
+| `getAreas`               | [`GET /v2/hotel/:hotelId/area`][type-area]                                    |
+| `getAreaTypeById`        | [`GET /v2/hotel/:hotelId/area-type/:areaTypeId`][type-areatype]               |
+| `getAreaTypes`           | [`GET /v2/hotel/:hotelId/area-type`][type-area-type]                          |
+| `getBillById`            | [`GET /v2/hotel/:hotelId/bill/:billId`][type-bill]                            |
+| `getChargeByIdForBill`   | [`GET /v2/hotel/:hotelId/bill/:billId/charge/:chargeId`][type-bill]           |
+| `getChargesForBill`      | [`GET /v2/hotel/:hotelId/bill/:billId/charge`][type-bill]                     |
+| `createChargeForBill`    | [`POST /v2/hotel/:hotelId/bill/:billId/charge`][type-bill]                    |
+| `refundChargeByIdForBill`| [`POST /v2/hotel/:hotelId/bill/:billId/charge/:chargeId/refund`][type-bill]   |
+| `getPaymentByIdForBill`  | [`GET /v2/hotel/:hotelId/bill/:billId/payment/:paymentId`][type-bill]         |
+| `getPaymentsForBill`     | [`GET /v2/hotel/:hotelId/bill/:billId/payment`][type-bill]                    |
+| `createPaymentForBill`   | [`POST /v2/hotel/:hotelId/bill/:billId/payment`][type-bill]                   |
+| `refundPaymentByIdForBill`| [`POST /v2/hotel/:hotelId/bill/:billId/payment/:paymentId/refund`][type-bill]|
+| `getBookingById`         | [`GET /v2/hotel/:hotelId/booking/:bookingId`][type-booking]                   |
+| `getBookings`            | [`GET /v2/hotel/:hotelId/booking`][type-booking]                              |
+| `createBooking`          | [`POST /v2/hotel/:hotelId/booking`][type-booking]                             |
+| `updateBookingById`      | [`PATCH /v2/hotel/:hotelId/booking/:bookingId`][type-booking]                 |
+| `checkInBookingById`     | [`POST /v2/hotel/:hotelId/booking/:bookingId/check-in`][type-booking]         |
+| `checkOutBookingById`    | [`POST /v2/hotel/:hotelId/booking/:bookingId/check-out`][type-booking]        |
+| `cancelBookingById`      | [`POST /v2/hotel/:hotelId/booking/:bookingId/cancel`][type-booking]           |
+| `getGuestsForBooking`    | [`GET /v2/hotel/:hotelId/booking/:bookingId/guest`][type-booking]             |
+| `getBillsForBooking`     | [`GET /v2/hotel/:hotelId/booking/:bookingId/bill`][type-booking]              |
+| `getBookingSets`         | [`GET /v2/hotel/:hotelId/booking-set`][type-bookingset]                       |
+| `getBookingSetById`      | [`GET /v2/hotel/:hotelId/booking-set/:bookingSetId`][type-bookingset]         |
+| `createBookingSet`       | [`POST /v2/hotel/:hotelId/booking-set`][type-bookingset]                      |
+| `updateBookingSet`       | [`PATCH /v2/hotel/:hotelId/booking-set/:bookingSetId`][type-bookingset]       |
+| `getExtraById`           | [`GET /v2/hotel/:hotelId/extra/:extraId`][type-extra]                         |
+| `getExtras`              | [`GET /v2/hotel/:hotelId/extra`][type-extra]                                  |
+| `getGuestById`           | [`GET /v2/hotel/:hotelId/guest/:guestId`][type-guest]                         |
+| `getGuests`              | [`GET /v2/hotel/:hotelId/guest`][type-guest]                                  |
+| `createGuest`            | [`POST /v2/hotel/:hotelId/guest`][type-guest]                                 |
+| `updateGuest`            | [`PATCH /v2/hotel/:hotelId/guest/:guestId`][type-guest]                       |
+| `getBillsForGuest`       | [`GET /v2/hotel/:hotelId/guest/:guestId/bill`][type-guest]                    |
+| `getRatePlanById`        | [`GET /v2/hotel/:hotelId/rate-plan/:ratePlanId`][type-rateplan]               |
+| `getRatePlans`           | [`GET /v2/hotel/:hotelId/rate-plan`][type-rateplan]                           |
+| `getPriceForRatePlan`    | [`GET /v2/hotel/:hotelId/rate-plan/:ratePlanId/price`][type-rateplan]         |
+| `updatePriceForRatePlan` | [`PUT /v2/hotel/:hotelId/rate-plan/:ratePlanId/price`][type-rateplan]         |
+| `getRateSets`            | [`GET /v2/hotel/:hotelId/rate-set`][type-rateset]                             |
 
 [getting-started]: https://docs.getimpala.com/#getting-started
+[type-allocation]: https://docs.getimpala.com/#allocation-group-block
+[type-area]: https://docs.getimpala.com/#area
+[type-areatype]: https://docs.getimpala.com/#area-types
+[type-bill]: https://docs.getimpala.com/#bill
 [type-booking]: https://docs.getimpala.com/#booking
+[type-booking]: https://docs.getimpala.com/#booking-set
+[type-extra]: https://docs.getimpala.com/#extra
 [type-guest]: https://docs.getimpala.com/#guest
-[type-room]: https://docs.getimpala.com/#room
-[type-roomtype]: https://docs.getimpala.com/#room-type
-[type-roomavailability]: https://docs.getimpala.com/#room-availability
-[type-roomtypeavailability]: https://docs.getimpala.com/#room-type-availability
-[type-rate]: https://docs.getimpala.com/#rate
 [type-rateplan]: https://docs.getimpala.com/#rate-plan
-[type-rateprice]: https://docs.getimpala.com/#rate-price
+[type-rateset]: https://docs.getimpala.com/#rate-set
