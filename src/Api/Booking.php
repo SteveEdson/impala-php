@@ -103,7 +103,7 @@ trait Booking
      */
     public function getGuestsForBooking(string $bookingId)
     {
-        return $this->get('booking/' . $bookingId . '/guests');
+        return $this->get('booking/' . $bookingId . '/guest');
     }
 
     /**

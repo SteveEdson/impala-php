@@ -210,7 +210,7 @@ class BookingTest extends TestCase
             ->method('makeRequest')
             ->with(
                 $this->equalTo('GET'),
-                $this->equalTo('hotel/hotelId/booking/bookingId/guests')
+                $this->equalTo('hotel/hotelId/booking/bookingId/guest')
             );
 
         $hotel = new Hotel('hotelId', $mock);
