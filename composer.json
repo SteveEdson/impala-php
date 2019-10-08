@@ -1,6 +1,6 @@
 {
   "name": "steveedson/impala-php",
-  "version": "3.0.0",
+  "version": "2.0.0",
   "description": "PHP wrapper for Impala hotel PMS API",
   "license": "MIT",
   "authors": [
@@ -11,7 +11,7 @@
   "require": {
     "php": ">=7.0",
     "guzzlehttp/guzzle": "^6.3",
-    "nesbot/carbon": "^1.22"
+    "nesbot/carbon": "^2.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^6",
