@@ -1,5 +1,5 @@
 {
-  "name": "steve/impala-php",
+  "name": "steveedson/impala-php",
   "version": "3.0.0",
   "description": "PHP wrapper for Impala hotel PMS API",
   "license": "MIT",
