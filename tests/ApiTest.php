@@ -15,7 +15,7 @@ class ApiTest extends TestCase
     protected $client;
     protected $container;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->container = [];
         $history = Middleware::history($this->container);
